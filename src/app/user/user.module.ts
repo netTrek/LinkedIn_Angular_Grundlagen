@@ -9,6 +9,6 @@ import { UserNameComponent } from './user-name/user-name.component';
     CommonModule
   ],
   declarations: [UserComponent, UserListComponent, UserNameComponent],
-  exports: [UserComponent, UserListComponent]
+  exports: [UserComponent]
 })
 export class UserModule { }
