@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserNameComponent implements OnInit {
 
   fontColor = 'red';
+  fontSize  = 1.2;
   name      = 'Saban Ünlü';
 
   constructor () {
