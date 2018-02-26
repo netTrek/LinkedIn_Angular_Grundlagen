@@ -19,7 +19,8 @@ export class UserNameComponent implements OnInit {
   ngOnInit () {
   }
 
-  chgName () {
+  chgName ( event: MouseEvent ) {
+    debugger
     if ( this.name !== 'Peter Müller' ) {
       this.name = 'Peter Müller';
     } else {
