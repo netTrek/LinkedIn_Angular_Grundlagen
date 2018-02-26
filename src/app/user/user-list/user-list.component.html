@@ -1,5 +1,13 @@
-<h1>User List - {{crrUsr3Name}}</h1>
-<in-user-name [name]="user1"></in-user-name>
-<in-user-name [name]="user2"></in-user-name>
-<in-user-name [name]="user3"
-              (nameChanged)="onNameChanged ( $event )"></in-user-name>
+<h1>User List - {{selectedUsrName}}</h1>
+<in-user-name [name]="users[0]"
+              [isSelected]="selectedUsrName===users[0]"
+              (selectUsr)="onSelectedUsr ( $event )"
+></in-user-name>
+<in-user-name [name]="users[1]"
+              [isSelected]="selectedUsrName===users[1]"
+              (selectUsr)="onSelectedUsr ( $event )"
+></in-user-name>
+<in-user-name [name]="users[2]"
+              [isSelected]="selectedUsrName===users[2]"
+              (selectUsr)="onSelectedUsr ( $event )"
+></in-user-name>

@@ -8,17 +8,18 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class UserListComponent implements OnInit{
 
-  user1 = 'Frank Müller';
-  user2 = 'Peter Mustermann';
-  user3 = 'Saban Ünlü';
+  users: string[] = [
+    'Frank Müller',
+    'Peter Mustermann',
+    'Saban Ünlü'
+  ];
 
-  crrUsr3Name: string;
+  selectedUsrName: string;
 
   constructor() { }
   ngOnInit() {  }
 
-  onNameChanged ( newName: string ) {
-    // console.log ( 'newName', newName );
-    this.crrUsr3Name = newName;
+  onSelectedUsr ( selectedUsrName: string ) {
+    this.selectedUsrName = selectedUsrName;
   }
 }
