@@ -12,8 +12,13 @@ export class UserListComponent implements OnInit{
   user2 = 'Peter Mustermann';
   user3 = 'Saban Ünlü';
 
-  user1City = 'Musterstadt';
+  crrUsr3Name: string;
 
   constructor() { }
   ngOnInit() {  }
+
+  onNameChanged ( newName: string ) {
+    // console.log ( 'newName', newName );
+    this.crrUsr3Name = newName;
+  }
 }

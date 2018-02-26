@@ -1,10 +1,12 @@
-import { Component,
+import {
+  Component, EventEmitter,
   HostBinding,
   HostListener,
   Input,
   OnChanges,
-  OnInit,
-  SimpleChanges } from '@angular/core';
+  OnInit, Output,
+  SimpleChanges
+} from '@angular/core';
 
 @Component ( {
   selector   : 'in-user-name',
@@ -13,6 +15,9 @@ import { Component,
 } )
 export class UserNameComponent implements OnInit, OnChanges {
 
+  @Output()
+  nameChanged: EventEmitter<string> = new EventEmitter();
+
   get name (): string {
     return this._name;
   }
@@ -20,14 +25,9 @@ export class UserNameComponent implements OnInit, OnChanges {
   set name ( value: string ) {
     if ( value.trim() !== '' ) {
       this._name = value;
+      this.isAdminUser = this._name === 'Saban Ünlü'
     }
   }
-
-  @Input()
-  city: string;
-
-  userNameStyleClass = 'user-name';
-
   private _name                = 'Saban Ünlü';
 
   @HostBinding ( 'class.user-name' )
@@ -47,13 +47,11 @@ export class UserNameComponent implements OnInit, OnChanges {
                              '_name'
   ] )
   chgName ( event: MouseEvent, name: string ) {
-    console.log ( event, name );
     if ( this._name !== 'Peter Müller' ) {
-      this._name       = 'Peter Müller';
-      this.isAdminUser = false;
+      this.name       = 'Peter Müller';
     } else {
-      this._name       = 'Saban Ünlü';
-      this.isAdminUser = true;
+      this.name       = 'Saban Ünlü';
     }
+    this.nameChanged.emit( this.name );
   }
 }
