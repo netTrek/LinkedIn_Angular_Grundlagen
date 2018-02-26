@@ -7,6 +7,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class UserListComponent implements OnInit{
+
+  user1 = 'Frank Müller';
+  user2 = 'Peter Mustermann';
+  user3 = 'Saban Ünlü';
+
   constructor() { }
   ngOnInit() {  }
 }
