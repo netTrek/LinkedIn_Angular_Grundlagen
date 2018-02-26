@@ -10,10 +10,14 @@ export class UserNameComponent implements OnInit {
   name               = 'Saban Ünlü';
   userNameStyleClass = 'user-name';
 
+  get isAdminUser (): boolean {
+    return this.name === 'Saban Ünlü';
+  }
   constructor () {
   }
 
   ngOnInit () {
   }
+
 
 }
