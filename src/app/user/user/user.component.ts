@@ -1,4 +1,5 @@
-import { AfterViewChecked, AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, DoCheck,
+  OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'in-user',
@@ -6,7 +7,8 @@ import { AfterViewChecked, AfterViewInit, Component, DoCheck, OnInit } from '@an
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, AfterViewInit,
-                                      DoCheck, AfterViewChecked {
+                                      DoCheck, AfterViewChecked,
+                                      OnDestroy {
   constructor() { }
 
   ngOnInit() {
@@ -23,5 +25,9 @@ export class UserComponent implements OnInit, AfterViewInit,
 
   ngAfterViewChecked (): void {
     console.log ( 'AfterViewChecked von User' );
+  }
+
+  ngOnDestroy (): void {
+  console.log ( 'OnDestroy von User' );
   }
 }
