@@ -1,12 +1,17 @@
-import { Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
+import { Component,
+  HostBinding,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges } from '@angular/core';
 
 @Component ( {
   selector   : 'in-user-name',
   templateUrl: './user-name.component.html',
   styleUrls  : [ './user-name.component.scss' ]
 } )
-export class UserNameComponent implements OnInit {
-
+export class UserNameComponent implements OnInit, OnChanges {
 
   get name (): string {
     return this._name;
@@ -18,6 +23,9 @@ export class UserNameComponent implements OnInit {
     }
   }
 
+  @Input()
+  city: string;
+
   userNameStyleClass = 'user-name';
 
   private _name                = 'Saban Ünlü';
@@ -26,6 +34,10 @@ export class UserNameComponent implements OnInit {
   isAdminUser = false;
 
   constructor () {
+  }
+
+  ngOnChanges ( changes: SimpleChanges ): void {
+    console.log ( changes );
   }
 
   ngOnInit () {
