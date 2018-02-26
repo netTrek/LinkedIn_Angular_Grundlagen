@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'in-user-name',
@@ -7,25 +7,41 @@ import { Component, HostListener, OnInit } from '@angular/core';
 } )
 export class UserNameComponent implements OnInit {
 
-  name               = 'Saban Ünlü';
+
+  get name (): string {
+    return this._name;
+  }
+  @Input ()
+  set name ( value: string ) {
+    if ( value.trim() !== '' ) {
+      this._name = value;
+    }
+  }
+
   userNameStyleClass = 'user-name';
 
-  get isAdminUser (): boolean {
-    return this.name === 'Saban Ünlü';
-  }
+  private _name                = 'Saban Ünlü';
+
+  @HostBinding ( 'class.user-name' )
+  isAdminUser = false;
+
   constructor () {
   }
 
   ngOnInit () {
   }
 
-  @HostListener ('click', ['$event', 'name'])
+  @HostListener ( 'click', [ '$event',
+                             '_name'
+  ] )
   chgName ( event: MouseEvent, name: string ) {
     console.log ( event, name );
-    if ( this.name !== 'Peter Müller' ) {
-      this.name = 'Peter Müller';
+    if ( this._name !== 'Peter Müller' ) {
+      this._name       = 'Peter Müller';
+      this.isAdminUser = false;
     } else {
-      this.name = 'Saban Ünlü';
+      this._name       = 'Saban Ünlü';
+      this.isAdminUser = true;
     }
   }
 }
