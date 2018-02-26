@@ -10,6 +10,7 @@ export class UserNameComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log ( 'OnInit von UserName' );
   }
 
 }
