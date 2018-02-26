@@ -14,6 +14,9 @@ export class UserNameComponent implements OnInit {
     this._name = value;
   }
 
+  htmlConten = `<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis commodi consequatur dolor explicabo incidunt omnis quidem suscipit unde voluptatibus! Deleniti eligendi ipsum nesciunt nisi soluta veniam. Accusantium esse, hic.</p>`
+  imgPath = '/assets/img/logo.png';
+
   private _name = 'Saban Ünlü';
 
   constructor() { }
