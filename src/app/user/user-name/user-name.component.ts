@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'in-user-name',
+@Component ( {
+  selector   : 'in-user-name',
   templateUrl: './user-name.component.html',
-  styleUrls: ['./user-name.component.scss']
-})
+  styleUrls  : [ './user-name.component.scss' ]
+} )
 export class UserNameComponent implements OnInit {
   get name (): string {
     return this._name; // `Herr ${this._name}`;
@@ -14,17 +14,25 @@ export class UserNameComponent implements OnInit {
     this._name = value;
   }
 
-  htmlConten = `<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis commodi consequatur dolor explicabo incidunt omnis quidem suscipit unde voluptatibus! Deleniti eligendi ipsum nesciunt nisi soluta veniam. Accusantium esse, hic.</p>`
-  imgPath = '/assets/img/logo.png';
+  htmlConten        = `<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis commodi consequatur dolor explicabo incidunt omnis quidem suscipit unde voluptatibus! Deleniti eligendi ipsum nesciunt nisi soluta veniam. Accusantium esse, hic.</p>`;
+  desc              = 'Inhalt für Screenreader';
+  imgPath           = '/assets/img/logo.png';
+  private _altLabel = 'logo';
+  private _name     = 'Saban Ünlü';
 
-  private _name = 'Saban Ünlü';
+  constructor () {
+  }
 
-  constructor() { }
-  ngOnInit() {  }
+  ngOnInit () {
+  }
 
   getName (): string {
-    console.log ( 'return name' , this.name );
+    console.log ( 'return name', this.name );
     return this._name;
+  }
+
+  getAltLabel (): string {
+    return this._altLabel;
   }
 
 }
