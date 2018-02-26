@@ -19,5 +19,11 @@ export class UserNameComponent implements OnInit {
   ngOnInit () {
   }
 
-
+  chgName () {
+    if ( this.name !== 'Peter Müller' ) {
+      this.name = 'Peter Müller';
+    } else {
+      this.name = 'Saban Ünlü';
+    }
+  }
 }
