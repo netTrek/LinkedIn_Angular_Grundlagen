@@ -1,3 +1,10 @@
+:host {
+  display: block;
+  background-color: beige;
+  &:hover {
+    cursor: pointer;
+  }
+}
 .user-name {
   color: lightgrey;
 }

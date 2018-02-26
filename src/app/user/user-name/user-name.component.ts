@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'in-user-name',
@@ -19,8 +19,8 @@ export class UserNameComponent implements OnInit {
   ngOnInit () {
   }
 
-  chgName ( event: MouseEvent ) {
-    debugger
+  @HostListener ('click')
+  chgName ( /*event: MouseEvent*/ ) {
     if ( this.name !== 'Peter Müller' ) {
       this.name = 'Peter Müller';
     } else {
