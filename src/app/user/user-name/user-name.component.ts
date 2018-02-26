@@ -19,8 +19,9 @@ export class UserNameComponent implements OnInit {
   ngOnInit () {
   }
 
-  @HostListener ('click')
-  chgName ( /*event: MouseEvent*/ ) {
+  @HostListener ('click', ['$event', 'name'])
+  chgName ( event: MouseEvent, name: string ) {
+    console.log ( event, name );
     if ( this.name !== 'Peter Müller' ) {
       this.name = 'Peter Müller';
     } else {

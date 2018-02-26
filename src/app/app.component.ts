@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'in-root',
@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'in';
   showUserInfo = true;
+
+  @HostListener ('window:resize', ['$event'])
+  resize ( event: Event ) {
+    console.log ( event );
+  }
 }
