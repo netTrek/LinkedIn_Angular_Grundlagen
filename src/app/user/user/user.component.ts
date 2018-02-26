@@ -1,13 +1,12 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
   selector: 'in-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit,AfterViewInit {
-
-
+export class UserComponent implements OnInit, AfterViewInit,
+                                      DoCheck, AfterViewChecked {
   constructor() { }
 
   ngOnInit() {
@@ -16,5 +15,13 @@ export class UserComponent implements OnInit,AfterViewInit {
 
   ngAfterViewInit (): void {
     console.log ( 'AfterViewInit von User' );
+  }
+
+  ngDoCheck (): void {
+    console.log ( 'DoCheck von User' );
+  }
+
+  ngAfterViewChecked (): void {
+    console.log ( 'AfterViewChecked von User' );
   }
 }
