@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component,
+  OnInit,
+  ViewEncapsulation } from '@angular/core';
 
 @Component ( {
   selector: 'in-user-list',
@@ -6,8 +8,13 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: [ './user-list.component.scss' ],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class UserListComponent {
+export class UserListComponent implements OnInit{
+
   constructor () {
-    console.log ( 'Hello UserList' );
+    console.log ( 'constructor von UserList' );
+  }
+
+  ngOnInit (): void {
+    console.log ( 'OnInit von UserList' );
   }
 }
